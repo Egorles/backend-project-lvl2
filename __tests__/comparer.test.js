@@ -2,8 +2,10 @@ const { test, expect } = require('@jest/globals');
 const path = require('path');
 const { createReport } = require('../utils.js');
 
-const path1 = path.join(__dirname, '..', '__fixtures__', 'file1.json');
-const path2 = path.join(__dirname, '..', '__fixtures__', 'file2.json');
+const jsonPath1 = path.join(__dirname, '..', '__fixtures__', 'json_file1.json');
+const jsonPath2 = path.join(__dirname, '..', '__fixtures__', 'json_file2.json');
+const ymlPath1 = path.join(__dirname, '..', '__fixtures__', 'yml_file1.yml');
+const ymlPath2 = path.join(__dirname, '..', '__fixtures__', 'yml_file2.yml');
 
 const expectedResult = `{
   host: hexlet.io
@@ -14,6 +16,10 @@ const expectedResult = `{
 + verbose: true
 }`;
 
-test('should work correct', () => {
-  expect(createReport(path1, path2)).toBe(expectedResult);
+test('json should work correct', () => {
+  expect(createReport(jsonPath1, jsonPath2)).toBe(expectedResult);
+});
+
+test('yml should work correct', () => {
+  expect(createReport(ymlPath1, ymlPath2)).toBe(expectedResult);
 });
