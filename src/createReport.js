@@ -1,27 +1,5 @@
-const fs = require('fs');
 const _ = require('lodash');
-const yaml = require('js-yaml');
-const path = require('path');
-
-const getData = (filePath) => {
-  const format = path.extname(filePath);
-  const data = fs.readFileSync(filePath);
-
-  let parse;
-  switch (format) {
-    case '.json':
-      parse = JSON.parse;
-      break;
-    case '.yml':
-    case '.yaml':
-      parse = yaml.load;
-      break;
-    default:
-      parse = JSON.parse;
-  }
-
-  return parse(data);
-};
+const { getData } = require('./parsers.js');
 
 const getDiff = (obj1, obj2, key) => {
   if (obj1[key] === obj2[key]) {

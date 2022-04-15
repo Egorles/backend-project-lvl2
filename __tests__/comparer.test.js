@@ -1,6 +1,6 @@
 const { test, expect } = require('@jest/globals');
 const path = require('path');
-const { createReport } = require('../utils.js');
+const { createReport } = require('../src/createReport.js');
 
 const jsonPath1 = path.join(__dirname, '..', '__fixtures__', 'json_file1.json');
 const jsonPath2 = path.join(__dirname, '..', '__fixtures__', 'json_file2.json');

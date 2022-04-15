@@ -1,5 +1,5 @@
 const { Command } = require('commander');
-const { createReport } = require('./utils.js');
+const { createReport } = require('./src/createReport.js');
 
 const program = new Command();
 
